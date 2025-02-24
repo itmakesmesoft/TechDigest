@@ -3,6 +3,8 @@ import { Banner, Head } from "nextra/components";
 import { getPageMap } from "nextra/page-map";
 import "nextra-theme-docs/style-prefixed.css";
 import "./globals.css";
+import Image from "next/image";
+import Logo from "../../public/Logo.png";
 
 export const metadata = {
   title: "TechDigest",
@@ -12,7 +14,7 @@ export const metadata = {
 const banner = (
   <Banner storageKey="some-key">아직 완성되지 않은 사이트임</Banner>
 );
-const navbar = <Navbar logo={<b>TechDigest</b>} />;
+const navbar = <Navbar logo={<Image src={Logo} width="100" alt="logo" />} />;
 const footer = <Footer>MIT {new Date().getFullYear()} © Nextra.</Footer>;
 
 export default async function RootLayout({
