@@ -28,7 +28,7 @@ export default async function RootLayout({
       suppressHydrationWarning
     >
       <Head>
-        {/* Your additional tags should be passed as `children` of `<Head>` element */}
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
       <body>
         <Layout

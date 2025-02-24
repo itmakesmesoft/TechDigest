@@ -1,0 +1,32 @@
+import { Counter } from "./Clients";
+
+# Client Component를 사용하려면?
+
+별도의 컴포넌트를 생성하고, 아래와 같이 `use client` 디렉티브를 최상단에 넣어주어야 함.
+
+### ClientComponent 사용하기
+
+<Counter />
+
+```mdx
+import Counter from '/path'
+### ClientComponent 사용하기
+
+<Counter />
+```
+
+```tsx
+"use client";
+
+import { ReactNode, useState } from "react";
+
+export function Counter({ children }: { children: ReactNode }) {
+  const [count, setCount] = useState(0);
+  return (
+    <button onClick={() => setCount((prev) => prev + 1)}>
+      {children}
+      {count}
+    </button>
+  );
+}
+```

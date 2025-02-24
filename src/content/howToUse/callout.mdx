@@ -1,0 +1,95 @@
+import { Callout } from "nextra/components";
+
+# Callout
+
+중요한 정보를 강조하여 보여주는 컴포넌트
+
+## Preview
+
+<Callout emoji="👾">
+  **Space Invaders** is a 1978 shoot 'em up arcade game developed by Tomohiro
+  Nishikado.
+</Callout>
+<Callout type="info" emoji="ℹ️">
+  Today is Friday.
+</Callout>
+<Callout type="warning" emoji="⚠️">
+  This API will be deprecated soon.
+</Callout>
+<Callout type="error" emoji="️🚫">
+  This is a dangerous feature that can cause everything to explode.
+</Callout>
+
+---
+
+## 사용법
+
+### default
+
+<Callout emoji="👾">
+  **Space Invaders** is a 1978 shoot 'em up arcade game developed by Tomohiro
+  Nishikado.
+</Callout>
+
+```mdx copy
+import { Callout } from "nextra/components";
+
+<Callout emoji="👾">
+  **Space Invaders** is a 1978 shoot 'em up arcade game developed by Tomohiro
+  Nishikado.
+</Callout>
+;
+```
+
+### info
+
+<Callout type="info" emoji="ℹ️">
+  Today is Friday.
+</Callout>
+
+```mdx copy
+import { Callout } from "nextra/components";
+
+<Callout type="info" emoji="ℹ️">
+  Today is Friday.
+</Callout>
+;
+```
+
+### warning
+
+<Callout type="warning" emoji="⚠️">
+  This API will be deprecated soon.
+</Callout>
+
+```mdx copy
+import { Callout } from "nextra/components";
+
+<Callout type="warning" emoji="⚠️">
+  This API will be deprecated soon.
+</Callout>
+;
+```
+
+### error
+
+<Callout type="error" emoji="️🚫">
+  This is a dangerous feature that can cause everything to explode.
+</Callout>
+
+```mdx copy
+import { Callout } from "nextra/components";
+
+<Callout type="error" emoji="️🚫">
+  This is a dangerous feature that can cause everything to explode.
+</Callout>
+;
+```
+
+## API
+
+| 옵션       | 타입                                    | 기본값    | 설명                                            |
+| ---------- | --------------------------------------- | --------- | ----------------------------------------------- |
+| `type`     | `default`\| `info`\| `warning`\|`error` | `default` | 콜아웃 타입                                     |
+| `emoji`    | `string` \| `ReactNode`                 |           | 콜아웃에 보여질 아이콘. 커스텀 아이콘 사용 가능 |
+| `children` | `ReactNode`                             |           | 콜아웃 내용                                     |
