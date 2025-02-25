@@ -40,6 +40,7 @@ export default async function RootLayout({
           pageMap={await getPageMap()}
           docsRepositoryBase="https://github.com/itmakesmesoft/TechDigest"
           footer={footer}
+          search={null}
         >
           {children}
         </Layout>
