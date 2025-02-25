@@ -6,9 +6,11 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "create-docs": "hygen generate docs"
   },
   "dependencies": {
+    "hygen": "^6.2.11",
     "next": "^15.1.7",
     "nextra": "^4.2.13",
     "nextra-theme-docs": "^4.2.13",

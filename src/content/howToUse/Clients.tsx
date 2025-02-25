@@ -5,7 +5,7 @@ import { ReactNode, useState } from "react";
 export function Counter({ children }: { children: ReactNode }) {
   const [count, setCount] = useState(0);
   return (
-    <button onClick={() => setCount((prev) => prev + 1)}>
+    <button onClick={() => setCount((prev) => prev + 1)} className="bg-white">
       {children}
       {count}
     </button>
