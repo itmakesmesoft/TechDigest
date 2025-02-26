@@ -30,7 +30,7 @@ module.exports = {
           })
           .then(({ chapter }) => {
             return { nameOfBook: choice, chapter };
-          })
+          }),
       );
   },
 };
