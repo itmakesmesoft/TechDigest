@@ -8,7 +8,6 @@ const getBookList = () => {
   const items = fs.readdirSync(srcPath);
   const filter = ["index.mdx", "_meta.ts"];
   const filtered = items.filter((item) => !filter.includes(item));
-  // console.log(filtered);
   return filtered;
 };
 
