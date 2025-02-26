@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "create-docs": "hygen generate docs"
+    "create-docs": "hygen generate docs",
+    "prepare": "husky"
   },
   "dependencies": {
     "hygen": "^6.2.11",

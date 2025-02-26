@@ -1,0 +1,39 @@
+
+# 🚀 Husky pre-push 훅 스크립트: 특정 원격 저장소와 브랜치로의 push 방지
+
+# 🔒 금지할 원격 저장소 URL 설정 (HTTPS 및 SSH 방식)
+FORBIDDEN_HTTPS_URL="https://github.com/itmakesmesoft/TechDigest.git" # 원격 저장소 URL (HTTPS)
+FORBIDDEN_SSH_URL="git@github.com:itmakesmesoft/TechDigest.git"       # 원격 저장소 URL (SSH)
+
+# 🔒 Push를 금지할 브랜치 설정
+FORBIDDEN_REF="refs/heads/main" # 마스터 브랜치 (refs/heads/<브랜치명> 형식)
+
+# 🚀 Husky에서 제공하는 Git Hook 관련 변수들을 배열로 변환
+ARR_GIT_PARAMS=($(echo $HUSKY_GIT_PARAMS)) # Git 명령어에서 전달된 인자들 (예: 원격 저장소 URL 등)
+ARR_GIT_STDIN=($(echo $HUSKY_GIT_STDIN))   # Git 푸시 시 전달되는 표준 입력 값 (브랜치 정보 등)
+
+# 🏷️ 원격 저장소 정보 추출
+remote=${ARR_GIT_PARAMS[0]}  # 원격 이름 (예: origin)
+url=${ARR_GIT_PARAMS[1]}      # 원격 저장소 URL (예: git@github.com:user/repo.git)
+
+# 🏷️ Push 관련 정보 추출
+local_ref=${ARR_GIT_STDIN[0]}  # 로컬 브랜치 참조 (예: refs/heads/feature-branch)
+local_sha=${ARR_GIT_STDIN[1]}  # 로컬 SHA (예: 커밋 해시)
+remote_ref=${ARR_GIT_STDIN[2]} # 원격 브랜치 참조 (예: refs/heads/master)
+remote_sha=${ARR_GIT_STDIN[3]} # 원격 SHA (예: 커밋 해시)
+
+# ✅ 다른 원격 저장소로의 푸시는 허용 (금지된 저장소가 아닐 경우 바로 종료)
+if [ "$url" != "$FORBIDDEN_HTTPS_URL" -a "$url" != "$FORBIDDEN_SSH_URL" ]
+then
+    exit 0 # 금지된 저장소가 아니므로 push 허용
+fi
+
+# ❌ 금지된 브랜치(master)로 push 시도 시 차단
+if [ "$remote_ref" == "$FORBIDDEN_REF" ]
+then
+    echo "❌ main 브랜치로 직접 push할 수 없습니다." # 사용자에게 경고 메시지 출력
+    exit 1 # 에러 코드 반환 -> push 차단
+fi
+
+# ✅ 모든 검사를 통과하면 정상적으로 push 진행
+exit 0
