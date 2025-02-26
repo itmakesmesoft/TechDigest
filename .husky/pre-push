@@ -1,0 +1,26 @@
+#!/bin/sh
+
+FORBIDDEN_HTTPS_URL="https://github.com/itmakesmesoft/TechDigest.git" # 레포 https url
+FORBIDDEN_SSH_URL="git@github.com:itmakesmesoft/TechDigest.git" # 레포 ssh url
+FORBIDDEN_REF="refs/heads/main"
+
+remote="$1"
+url="$2"
+
+if [ "$url" != "$FORBIDDEN_HTTPS_URL" -a "$url" != "$FORBIDDEN_SSH_URL" ]
+then
+    echo "forked branch can push your commits"
+    exit 0 # Forked Project 에서는 제한하지 않음
+fi
+
+if read local_ref local_sha remote_ref remote_sha
+then
+    if [ "$remote_ref" == "$FORBIDDEN_REF" ]
+    then
+        echo "🔴 main 브랜치로 직접 push 할 수 없습니다"
+        echo "🟢 별도의 브랜치로 push 후 PR 해주세요"
+        exit 1 # 금지된 ref 로 push 를 실행하면 에러
+    fi
+fi
+
+exit 0

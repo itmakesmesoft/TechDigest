@@ -7,7 +7,19 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "create-docs": "hygen generate docs"
+    "create-docs": "hygen generate docs",
+    "postinstall": "husky",
+    "prepack": "pinst --disable",
+    "postpack": "pinst --enable"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --cache --fix",
+      "prettier --cache --write"
+    ],
+    "*.{md,json}": [
+      "prettier --cache --write"
+    ]
   },
   "dependencies": {
     "hygen": "^6.2.11",
@@ -25,7 +37,9 @@
     "eslint": "^9",
     "eslint-config-next": "15.1.7",
     "husky": "^9.1.7",
+    "lint-staged": "^15.4.3",
     "postcss": "^8",
+    "prettier": "^3.5.2",
     "tailwindcss": "^3.4.1",
     "typescript": "^5"
   }
