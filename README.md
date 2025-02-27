@@ -1,6 +1,7 @@
 # TechDigest
 
 ### 문서 추가하는 법
+
 1. `yarn create-docs` 명령어 입력
 2. 문서를 추가할 책 선택
 
@@ -11,5 +12,3 @@
 3. 챕터 입력 후 `Enter`
 
    <img src="https://github.com/user-attachments/assets/a17efae6-acab-4705-aed7-b132db3ffcd8" alt="image" width="300" height="auto">
-
-
