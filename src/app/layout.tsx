@@ -1,8 +1,7 @@
+import "./globals.css";
 import { Footer, Layout, Navbar } from "nextra-theme-docs";
 import { Banner, Head } from "nextra/components";
 import { getPageMap } from "nextra/page-map";
-import "nextra-theme-docs/style-prefixed.css";
-import "./globals.css";
 import Image from "next/image";
 import Logo from "../../public/Logo.png";
 
@@ -42,7 +41,9 @@ export default async function RootLayout({
           footer={footer}
           search={null}
         >
-          {children}
+          <div className="relaitve min-h-[calc(100vh-var(--nextra-navbar-height))]">
+            {children}
+          </div>
         </Layout>
       </body>
     </html>
