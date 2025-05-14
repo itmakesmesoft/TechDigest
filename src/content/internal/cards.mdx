@@ -1,0 +1,50 @@
+import { Cards } from "nextra/components";
+
+# Cards
+
+Cards 컴포넌트는 Nextra에서 콘텐츠를 카드 형식으로 표시하는 컴포넌트. 관련 콘텐츠에 아이콘, 제목, 링크 및 이미지를 추가하는 옵션 제공
+
+## Preview
+
+<Cards>
+  <Cards.Card icon={<></>} title="Callout" href="/docs/built-ins/callout" />
+  <Cards.Card icon={<></>} title="Tabs" href="/docs/built-ins/tabs" />
+  <Cards.Card icon={<></>} title="Steps" href="/docs/built-ins/steps" />
+</Cards>
+<Cards.Card icon={<></>} title="About Nextra" href="/about" arrow />
+
+## 사용법
+
+### 그룹화된 카드
+
+`<Card>` 컴포넌트를 포함하는 `<Cards>` 컴포넌트를 페이지로 가져옵니다. 이후 선택적으로 사용하려는 아이콘을 가져옵니다. 카드 세트를 만들려면 아래 예제에 따라 `<Cards.Card>` 컴포넌트를 사용하여 카드를 만들고 `<Cards>` 컴포넌트를 사용하여 여러 카드를 함께 그룹화합니다.
+
+```mdx
+import { Cards } from "nextra/components";
+import { CardsIcon, OneIcon, WarningIcon } from "../path/with/your/icons";
+
+<Cards>
+  <Cards.Card
+    icon={<WarningIcon />}
+    title="Callout"
+    href="/docs/built-ins/callout"
+  />
+  <Cards.Card icon={<CardsIcon />} title="Tabs" href="/docs/built-ins/tabs" />
+  <Cards.Card icon={<OneIcon />} title="Steps" href="/docs/built-ins/steps" />
+</Cards>
+```
+
+### 단일 카드
+
+`<Cards>` 컴포넌트로 래핑되지 않은 `<Card>`는 다른 카드와 그룹화되지 않습니다. 이는 페이지의 다른 카드와 다른 형식으로 단일 카드를 표시하려는 경우에 유용할 수 있습니다.
+
+```mdx
+<Cards.Card icon={<BoxIcon />} title="About Nextra" href="/about" arrow />
+```
+
+## API
+
+| 이름       | 타입                             | 기본값 | 설명                                             |
+| :--------- | :------------------------------- | :----- | :----------------------------------------------- |
+| `num`      | `number`                         | `3`    | 열의 개수입니다.                                 |
+| `...props` | `HTMLAttributes<HTMLDivElement>` |        | 기본 `<div>` 요소의 모든 HTML 속성을 지원합니다. |

@@ -1,14 +1,10 @@
 const meta = {
-  index: { type: "page", title: "About" },
-  books: {
+  about: { type: "page", title: "About" },
+  docs: {
     type: "page",
     title: "Docs",
   },
-  "--": {
-    type: "separator",
-    title: <div className="flex items-center gap-2" />,
-  },
-  howToUse: {
+  internal: {
     type: "page",
     title: "Internal",
   },

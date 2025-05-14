@@ -1,0 +1,58 @@
+import { Tabs } from "nextra/components";
+
+# Tabs
+
+정보를 컴팩트하고 상호작용 가능한 레이아웃으로 정리하기 위한 컴포넌트
+
+## Preview
+
+<Tabs items={["pnpm", "npm", "yarn"]}>
+  <Tabs.Tab>빠르고 디스크 공간 효율적인 패키지 관리자입니다.</Tabs.Tab>
+  <Tabs.Tab>JavaScript 프로그래밍 언어용 패키지 관리자입니다.</Tabs.Tab>
+  <Tabs.Tab>소프트웨어 패키징 시스템입니다.</Tabs.Tab>
+</Tabs>
+
+## 사용법
+
+```jsx
+import { Tabs } from "nextra/components";
+
+<Tabs items={["pnpm", "npm", "yarn"]}>
+  <Tabs.Tab>빠르고 디스크 공간 효율적인 패키지 관리자입니다.</Tabs.Tab>
+  <Tabs.Tab>JavaScript 프로그래밍 언어용 패키지 관리자입니다.</Tabs.Tab>
+  <Tabs.Tab>소프트웨어 패키징 시스템입니다.</Tabs.Tab>
+</Tabs>;
+```
+
+### 기본 선택된 인덱스
+
+`defaultIndex` prop을 사용하여 기본 탭 인덱스를 설정할 수 있습니다.
+
+```jsx
+import { Tabs } from "nextra/components";
+
+<Tabs items={["pnpm", "npm", "yarn"]} defaultIndex="1">
+  ...
+</Tabs>;
+```
+
+그러면 `npm`이 기본 탭으로 설정됩니다.
+
+<Tabs items={["pnpm", "npm", "yarn"]}>
+  <Tabs.Tab>빠르고 디스크 공간 효율적인 패키지 관리자입니다.</Tabs.Tab>
+  <Tabs.Tab>JavaScript 프로그래밍 언어용 패키지 관리자입니다.</Tabs.Tab>
+  <Tabs.Tab>소프트웨어 패키징 시스템입니다.</Tabs.Tab>
+</Tabs>
+
+## API
+
+| 이름            | 타입                                                          | 기본값      | 설명                                             |
+| :-------------- | :------------------------------------------------------------ | :---------- | :----------------------------------------------- |
+| `items`         | `(TabItem \| TabObjectItem)[]`                                |             | 탭 항목 배열입니다.                              |
+| `children`      | `ReactNode`                                                   |             | 탭 패널 콘텐츠입니다.                            |
+| `storageKey`    | `string`                                                      |             | 선택된 탭을 유지하기 위한 LocalStorage 키입니다. |
+| `className`     | `string \| ((bag: ListRenderPropArg) => string) \| undefined` | `undefined` | 탭 CSS 클래스 이름입니다.                        |
+| `tabClassName`  | `string \| ((bag: TabRenderPropArg) => string) \| undefined`  | `undefined` | 탭 버튼 CSS 클래스 이름입니다.                   |
+| `defaultIndex`  | `number`                                                      |             | 기본으로 선택될 탭의 인덱스입니다.               |
+| `onChange`      | `(index: number) => void`                                     |             | 탭 변경 시 호출되는 콜백 함수입니다.             |
+| `selectedIndex` | `number`                                                      |             | 현재 선택된 탭의 인덱스 (제어 컴포넌트)          |
