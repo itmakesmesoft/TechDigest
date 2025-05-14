@@ -1,0 +1,191 @@
+import { Tabs, Callout, Steps, Cards } from "nextra/components";
+
+# TechDigest
+
+<Callout type="info" emoji={null}>
+  **TechDigest**는 면접과 실무에 필요한 컴퓨터 과학 핵심 개념을 깊이 있게
+  학습하는 스터디입니다. 복잡한 기술 개념을 명확하고 구조적으로 이해하는 것을
+  목표로 합니다.
+</Callout>
+
+## 스터디 운영 방식
+
+### 정기 미팅
+
+<div className="p-4 flex flex-col gap-2 border border-gray-200 dark:border-gray-700 rounded-md bg-gray-50 dark:bg-gray-900 my-4">
+  <p>**일시**: 매주 수요일 저녁 8시</p>
+  <p>**장소**: 온라인 화상 회의</p>
+  <p>**진행**: 각자 정리한 내용 발표 및 질의응답 (30분/인)</p>
+  <p>**피드백**: 발표 후 내용 보완 및 개선점 논의</p>
+</div>
+
+### 문서 제출 프로세스
+
+<Steps>
+{<h3>브랜치 생성</h3>}
+main 브랜치에서 새 작업 브랜치를 생성합니다.
+```bash
+git checkout -b feature/[주제]-[챕터]-[이름]
+```
+
+{<h3>문서 작성</h3>}
+
+마크다운 또는 MDX 형식으로 내용을 정리합니다.
+
+```
+# 제목: [주제] - [챕터명]
+
+## 개요
+...
+```
+
+{<h3>커밋 및 푸시</h3>}
+
+변경사항을 커밋하고 원격 저장소에 푸시합니다.
+
+```bash
+git add .
+git commit -m "Add: [주제] [챕터] 정리"
+git push origin feature/[주제]-[챕터]-[이름]
+```
+
+{<h3>PR 생성</h3>}
+
+GitHub에서 Pull Request를 생성하고 리뷰를 요청합니다.
+
+</Steps>
+
+## 문서 작성 가이드
+
+<Tabs items={["기본 원칙", "문서 구조", "작성 방법"]}>
+  <Tabs.Tab>
+    <Callout type="info">
+      문서 작성 시 다음 네 가지 기본 원칙을 항상 유념해주세요.
+    </Callout>
+    - **정확성**: 검증된 정보와 출처를 바탕으로 작성
+    - **명료성**: 복잡한 개념도 이해하기 쉽게 설명
+    - **체계성**: 논리적인 순서로 내용을 구성
+    - **실용성**: 실제 적용 가능한 예시와 코드 포함
+
+  </Tabs.Tab>
+  <Tabs.Tab>
+    <div className="px-4 border border-gray-200 dark:border-gray-700 rounded-md bg-gray-50 dark:bg-gray-900">
+      ### 문서 구조
+
+      ```markdown
+      # 제목: [주제] - [챕터명]
+
+      ## 개요
+      [챕터 핵심 내용 요약]
+
+      ## 목차
+      - [섹션1]
+      - [섹션2]
+      - ...
+
+      ## [섹션1]
+      [상세 내용]
+
+      ### 핵심 개념
+      [개념 설명]
+
+      ### 예시 코드
+      ```코드 블록```
+
+      ## 참고 자료
+      - [자료1]
+      - [자료2]
+      ```
+    </div>
+
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ### 작성 방법
+
+    <Steps>
+      ### 문서 생성 명령어 실행
+      터미널에서 `yarn create-docs` 명령어를 실행합니다.
+
+      ### 책/주제 선택
+      방향키로 원하는 책이나 주제를 선택하고 Enter를 누릅니다.
+
+      ### 챕터명 입력
+      작성할 챕터의 이름을 입력하고 Enter를 누릅니다.
+
+      ### 템플릿 기반 작성
+      생성된 템플릿 파일을 열고 내용을 작성합니다.
+    </Steps>
+
+    <Callout type="warning" emoji="⚠️">
+      문서는 마감 기한(화요일 23:59:59)까지 반드시 제출해야 합니다.
+    </Callout>
+
+  </Tabs.Tab>
+</Tabs>
+
+## 참여 규칙
+
+<Callout type="info">
+  TechDigest는 모든 참여자의 적극적인 참여와 기여를 바탕으로 운영됩니다.
+</Callout>
+
+- **적극적 참여**: 모든 미팅에 참석하고 질문과 토론에 적극 참여
+- **상호 존중**: 다양한 의견과 관점을 존중하는 태도 유지
+- **지식 공유**: 개인이 습득한 지식을 팀원들과 공유
+- **책임감**: 정해진 일정과 제출 기한 준수
+
+## 벌금 제도
+
+<div className="overflow-x-auto my-4">
+  <table className="w-full border-collapse">
+    <thead>
+      <tr className="bg-gray-100 dark:bg-gray-800">
+        <th className="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-800 dark:text-gray-200">
+          항목
+        </th>
+        <th className="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-800 dark:text-gray-200">
+          내용
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td className="border border-gray-300 dark:border-gray-700 px-4 py-2 font-medium bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200">
+          대상
+        </td>
+        <td className="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300">
+          기한 내 PR 미제출 참여자
+        </td>
+      </tr>
+      <tr>
+        <td className="border border-gray-300 dark:border-gray-700 px-4 py-2 font-medium bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200">
+          금액
+        </td>
+        <td className="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300">
+          1만원/회
+        </td>
+      </tr>
+      <tr>
+        <td className="border border-gray-300 dark:border-gray-700 px-4 py-2 font-medium bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200">
+          용도
+        </td>
+        <td className="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300">
+          스터디 회식비 또는 다과비
+        </td>
+      </tr>
+      <tr>
+        <td className="border border-gray-300 dark:border-gray-700 px-4 py-2 font-medium bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200">
+          목적
+        </td>
+        <td className="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300">
+          규칙적인 학습 습관 및 책임감 형성
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<Callout type="info" emoji={null} className="dark:bg-gray-800">
+  TechDigest는 모든 팀원의 성장을 위한 협력적인 학습 공간입니다. 함께 배우고
+  성장하는 여정에 동참해 주세요.
+</Callout>
